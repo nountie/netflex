@@ -1,0 +1,22 @@
+{
+  "name": "Netflex",
+  "version": "0.0.1",
+  "description": "Gra przeglądarkowa pomagająca osiagać cele",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+    "url": "http://github.com/martinmountie/netflex.git"
+  },
+  "author": "Marpine",
+  "license": "All rigths reserved",
+  "devDependencies": {
+    "browser-sync": "^2.24.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.1"
+  }
+}

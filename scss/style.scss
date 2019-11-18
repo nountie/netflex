@@ -1,0 +1,230 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 15px;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.box {
+  color: #fff;
+  padding: 20px;
+  flex: 1 0 auto;
+  height: 200px;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  background-size: cover;
+  margin: 15px;
+  transition: flex 0.4s ease, background 0.4s ease, height 0.4s ease;
+  
+  .time {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    text-shadow: 1px 1px 1px #000;
+    letter-spacing: 2px;
+    background: #e60909;
+    border-radius: 3px;
+    padding: 3px 7px;
+    transform: translateY(-100px);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .play {
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-left: 24px solid #fff;
+      border-bottom: 12px solid transparent;
+      position: absolute;
+      top: 12px;
+      left: 14px;
+    }
+    z-index: 9;
+    transition: transform 0.4s ease-in-out;
+    transform: translateX(-200px);
+    position: absolute;
+    top: 195px;
+    left: 20px;
+    background: #e60909;
+    padding: 8px;
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+  }
+
+  .desc {
+    display: inline-block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 7px 20px 20px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    font-size: 13px;
+    margin: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    height: 73%;
+    border-top: 5px solid #e60909;
+    transform: translateY(120%);
+    transition: transform 0.4s ease-in-out;
+    box-shadow: 0px 1px 1px 0px #1d1d1d inset;
+    z-index: 99;
+
+    &::before {
+       content: "";
+       display: block;
+       position: absolute;
+       top: -32px;
+       left: 50%;
+       transform: translateX(-50%);
+       width: 0;
+       height: 0;
+       border-left: 40px solid transparent;
+       border-right: 40px solid transparent;
+       border-bottom: 32px solid #e60909;
+    }
+  }
+
+  span {
+    font-weight: 600;
+    opacity: 0;
+    font-size: 19px;
+    white-space: nowrap;
+    display: block;
+    text-align: right;
+    position: absolute;
+    left: -15px;
+    transform: translateX(-60%);
+    word-wrap: nowrap;
+    transition: all 0.4s ease-in-out;
+    background: rgba(#111, 0.75);
+    padding: 15px 20px 15px 60px;
+    border-radius: 4px;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 15px;
+      height: 100%;
+      width: 15px;
+      background: #e50914;
+      box-shadow: 2px 0px 2px -1px #1d1d1d;
+    }
+  }
+  &::after {
+    content: "";
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+    transition: background-color 0.4s ease;
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50px;
+    width: 100%;
+    box-shadow: inset -16px -43px 43px -16px #1d1d1d;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+
+  &:hover {
+    cursor: pointer;
+    flex-grow: 5;
+    span {
+      font-size: 19px;
+      letter-spacing: 2px;
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    height: 350px;
+    &::after {
+      background-color: rgba(0, 0, 0, 0);
+    }
+    &::before {
+      opacity: 1;
+    }
+    .time {
+      transform: translateY(0px);
+    }
+    .play {
+      transform: translateX(0px);
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      opacity: 1;
+      &:hover {
+        transform: translateX(0px);
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+    .desc {
+      transform: translateY(170px);
+      z-index: 999;
+      &:hover {
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(0%);
+        &~ .play {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+.big-row {
+  height: 200px;
+}
+
+.row-1 {
+  position: relative;
+  z-index: 9;
+  margin-top: 30px;
+}
+
+.row-2 {
+  flex-direction: row-reverse;
+  position: relative;
+  margin-top: 30px;
+  z-index: 6;
+}
+.row-3 {
+    flex-direction: row-reverse;
+    position: relative;
+    margin-top: 30px;
+}
+.row-4 {
+  height: 380px;
+}
+
+.logo img {
+  width: 300px;
+}
